@@ -4,7 +4,6 @@ import boto3
 import datetime
 import os
 import requests
-#from pprint import pprint
 
 client = boto3.client('ec2')
 all_regions=client.describe_regions()
