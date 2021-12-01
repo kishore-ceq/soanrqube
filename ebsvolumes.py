@@ -93,7 +93,7 @@ def get_volumes(region):
                 
         print(detach_time)
         # Get the number of days since device is 
-        idle_days = ageInDays(detach_time.date(), today)
+        idle_days = age_indays(detach_time.date(), today)
         
         outcome.append({
             'id': ebs_volume['VolumeId'],
@@ -109,7 +109,7 @@ def get_volumes(region):
     return outcome
     
 
-def ageInDays(last_day, present_day):
+def age_indays(last_day, present_day):
     difference = present_day - last_day
     age = difference.days
     return age
