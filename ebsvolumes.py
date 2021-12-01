@@ -37,7 +37,7 @@ def lambda_handler(event, context):
     result = []
     
     for region in list_of_regions:
-        volume = get_Volumes(region)
+        volume = get_volumes(region)
         
         result = result + volume
     
@@ -62,7 +62,7 @@ def lambda_handler(event, context):
     }
     
     
-def get_Volumes(region):
+def get_volumes(region):
     outcome = []
     today = datetime.date.today()
     client = boto3.client('ec2', region_name = region)
