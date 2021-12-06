@@ -24,15 +24,15 @@ def lambda_handler(event, context):
     username = os.environ['USERNAME']
     password = os.environ['PASSWORD']
     # #oAuth Response
-    # url = "https://servicecafedev.service-now.com/oauth_token.do"
-    # payload="grant_type=password&client_id=" + client_id + "&client_secret=" + client_secret + "&username=" + username + "&password=" + password
+    url = "https://servicecafedev.service-now.com/oauth_token.do"
+    payload="grant_type=password&client_id=" + client_id + "&client_secret=" + client_secret + "&username=" + username + "&password=" + password
     
-    # headers = {
-    #      'Content-Type': 'application/x-www-form-urlencoded',
-    #      'Cookie': 'BIGipServerpool_servicecafedev=2541902346.40766.0000; JSESSIONID=C0FFB74F88A66ED5E90835E3CB0F8B4D; glide_user_route=glide.8145274ea778054324de3882d975bce4'
-    # }
-    # responseSNOW = requests.request("POST", url, headers=headers, data=payload)
-    # token = json.loads(responseSNOW.text)["access_token"]
+    headers = {
+         'Content-Type': 'application/x-www-form-urlencoded',
+         'Cookie': 'BIGipServerpool_servicecafedev=2541902346.40766.0000; JSESSIONID=C0FFB74F88A66ED5E90835E3CB0F8B4D; glide_user_route=glide.8145274ea778054324de3882d975bce4'
+    }
+    responseSNOW = requests.request("POST", url, headers=headers, data=payload)
+    token = json.loads(responseSNOW.text)["access_token"]
     
     result = []
     
@@ -41,18 +41,18 @@ def lambda_handler(event, context):
         
         result = result + volume
     
-    # url = "https://servicecafedev.service-now.com/api/sn_cmp/resource_optimization"
-    # headers1 = {
-    #   'Authorization': 'Bearer ' + token,
-    #   'Content-Type': 'application/json'
-    # }   
+    url = "https://servicecafedev.service-now.com/api/sn_cmp/resource_optimization"
+    headers1 = {
+      'Authorization': 'Bearer ' + token,
+      'Content-Type': 'application/json'
+    }   
     
-    # data = result
-    # print(data)
+    data = result
+    print(data)
    
-    # #print(json.dumps(data))
-    # responseSNOW = requests.request("POST", url, headers=headers1, data=json.dumps(data))
-    # print(responseSNOW)
+    #print(json.dumps(data))
+    responseSNOW = requests.request("POST", url, headers=headers1, data=json.dumps(data))
+    print(responseSNOW)
 
  
     return {
