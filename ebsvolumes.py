@@ -32,7 +32,7 @@ def lambda_handler(event, context):
          'Cookie': 'BIGipServerpool_servicecafedev=2541902346.40766.0000; JSESSIONID=C0FFB74F88A66ED5E90835E3CB0F8B4D; glide_user_route=glide.8145274ea778054324de3882d975bce4'
     }
     responsesnow = requests.request("POST", url, headers=headers, data=payload)
-    token = json.loads(responseSNOW.text)["access_token"]
+    token = json.loads(responsesnow.text)["access_token"]
     
     result = []
     
