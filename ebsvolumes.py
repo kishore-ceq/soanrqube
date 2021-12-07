@@ -49,19 +49,11 @@ def lambda_handler(event, context):
     
     data = result
     print(data)
-   
-    #print(json.dumps(data))
     responsesnow = requests.request("POST", url, headers=headers1, data=json.dumps(data))
     print(responsesnow)
-
- 
     return {
-        # 'statusCode': 200,
         'body': json.loads(json.dumps(result, default=datetime_handler))
-        #'data': json.loads(json.dumps(event_res, default=datetime_handler))
-    }
-    
-    
+    }  
 def get_volumes(region):
     outcome = []
     today = datetime.date.today()
