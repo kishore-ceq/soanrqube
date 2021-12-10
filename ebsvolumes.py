@@ -100,7 +100,6 @@ def get_volumes(region):
         })
     return outcome
     
-
 def age_indays(last_day, present_day):
     difference = present_day - last_day
     age = difference.days
